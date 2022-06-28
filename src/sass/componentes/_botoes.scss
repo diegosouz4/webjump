@@ -1,0 +1,26 @@
+.btn {
+  border: 0;
+  background: none;
+  color: var(--cor-branca-300);
+  font-family: inherit;
+  font-size: var(--font-16);
+  font-weight: var(--font-extrabold);
+  text-transform: uppercase;
+
+  position: relative;
+  transition: 250ms var(--pop);
+  &:hover,
+  &:focus {
+    transform: scale(1.02);
+  }
+
+  &.btn--busca {
+    height: 2.75rem;
+    padding: 0 1.5rem;
+    background: var(--cor-vermelha-200);
+    &:hover,
+    &:focus {
+      background: var(--cor-vermelha-100);
+    }
+  }
+}

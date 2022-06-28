@@ -1,0 +1,45 @@
+.breadcrumb {
+  a,
+  p {
+    display: inline-block;
+    color: var(--cor-preta-300);
+    font-size: var(--font-14);
+    line-height: 1.2;
+  }
+
+  a + a,
+  a + p {
+    margin-left: 0.3125rem;
+    &::before {
+      content: ">";
+      padding-right: 0.3125rem;
+    }
+  }
+
+  p{
+    color: var(--cor-vermelha-200);
+  }
+
+  a {
+    position: relative;
+    &:hover,
+    &:focus {
+      &::after {
+        bottom: -4px;
+        opacity: 1;
+      }
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      opacity: 0;
+      transition: 250ms var(--pop);
+      background: var(--cor-preta-300);
+    }
+  }
+}

@@ -1,0 +1,89 @@
+.header {
+  @include mobile{
+    position: relative;
+  }
+  &__nav {
+    @include mobile {
+      transform-origin: top;
+      opacity: 0;
+      transform: scaleY(0);
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 130px;
+      z-index: 1;
+      width: 100%;
+      &.open {
+        display: block;
+        animation: 450ms showMenu ease-in forwards;
+      }
+    }
+    background-color: var(--cor-vermelha-200);
+    .container {
+      .nav__menu {
+        padding: 1.25rem;
+        @media (min-width: 321px) {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 5rem;
+        }
+        @include tablet {
+          gap: 2.5rem;
+          justify-content: space-between;
+        }
+        li {
+          @include mobile {
+            display: block;
+            text-align: center;
+            & + li {
+              border-top: 1px solid rgba(255, 255, 255, 0.25);
+            }
+            a {
+              padding: 1rem 0;
+            }
+          }
+        }
+        a {
+          display: block;
+          font-size: var(--font-16);
+          font-weight: var(--font-extrabold);
+          color: var(--cor-branca-300);
+          text-transform: uppercase;
+
+          position: relative;
+          &:hover,
+          &:focus {
+            &::after {
+              bottom: -4px;
+              opacity: 1;
+            }
+          }
+          &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            background: var(--cor-branca-300);
+            opacity: 0;
+            transition: 250ms var(--pop);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes showMenu {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}

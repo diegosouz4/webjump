@@ -1,0 +1,1 @@
+export default function Api(o,t,e){fetch(o).then((o=>{if(!o.ok)throw o;return o.json()})).then((o=>{if(!t)return console.log(o);t(o)})).catch((o=>{if(!e)return console.log(o);e(o)}))}

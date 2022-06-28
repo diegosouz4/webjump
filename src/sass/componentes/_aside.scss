@@ -1,0 +1,93 @@
+[data-view="categoria"] {
+  .aside {
+    padding: 0.75rem 1.125rem;
+    border: 1px solid var(--cor-cinza-100);
+    h2 {
+      font-size: var(--font-24);
+      color: var(--cor-vermelha-200);
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 0.875rem;
+    }
+
+    .filtro {
+      margin-bottom: 2rem;
+      h3 {
+        color: var(--cor-azul-100);
+        font-size: var(--font-18);
+        font-weight: var(--font-bold);
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+      }
+      a {
+        font-size: var(--font-16);
+        line-height: 24px;
+        color: var(--cor-preta-200);
+      }
+      &:not([data-filtro="cores"]) {
+        li {
+          &::before {
+            content: "\2022";
+            font-size: var(--font-18);
+            color: var(--cor-cinza-400);
+            display: inline-block;
+            margin-right: 0.3125rem;
+          }
+
+          a {
+            &:hover,
+            &:focus {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &[data-filtro="cores"] {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.3125rem;
+
+          [data-cor] {
+            display: block;
+            width: 3rem;
+            height: 1.5rem;
+            transition: 250ms var(--pop);
+            &:hover,
+            &:focus {
+              opacity: 0.8;
+            }
+          }
+          [data-cor="amarelo"] {
+            background-color: var(--filtro-amarelo);
+          }
+          [data-cor="azul"] {
+            background-color: var(--filtro-azul);
+          }
+          [data-cor="bege"] {
+            background-color: var(--filtro-bege);
+          }
+          [data-cor="cinza"] {
+            background-color: var(--filtro-cinza);
+          }
+          [data-cor="laranja"] {
+            background-color: var(--filtro-laranja);
+          }
+          [data-cor="preto"] {
+            background-color: var(--filtro-preto);
+          }
+          [data-cor="rosa"] {
+            background-color: var(--filtro-rosa);
+          }
+          [data-cor="vermelho"] {
+            background-color: var(--filtro-vermelho);
+          }
+        }
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}

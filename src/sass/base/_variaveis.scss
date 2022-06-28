@@ -1,0 +1,45 @@
+:root {
+  // Cores
+  --cor-branca-300: #fff;
+  --cor-cinza-100: #e2dedc;
+  --cor-cinza-200: #acacac;
+  --cor-cinza-300: #959595;
+  --cor-cinza-400: #828388;
+  --cor-cinza-500: #676767;
+  --cor-preta-100: #231f20;
+  --cor-preta-200: #1a1818;
+  --cor-preta-300: #000;
+  --cor-vermelha-100: #e50019;
+  --cor-vermelha-200: #cb0d1f;
+  --cor-azul-100: #80bdb8;
+
+  // Cores do filtro
+  --filtro-amarelo: #fdeb14;
+  --filtro-azul: #27a3a9;
+  --filtro-bege: #d1b18b;
+  --filtro-cinza: #828388;
+  --filtro-laranja: #f26324;
+  --filtro-preto: #1a1818;
+  --filtro-rosa: #fd7eb3;
+  --filtro-vermelho: #cb0d1f;
+
+  // Fonts
+  --font-family: "Open Sans", sans-serif;
+
+  --font-regular: 400;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  --font-11: 0.6875rem;
+  --font-14: 0.875rem;
+  --font-15: 0.9375rem;
+  --font-16: 1rem;
+  --font-18: 1.125rem;
+  --font-21: 1.3125rem;
+  --font-24: 1.5rem;
+  --font-26: 1.625rem;
+  --font-32: 2rem;
+
+  // animacao
+  --pop: cubic-bezier(0.56, -0.35, 0.5, 1.39);
+}

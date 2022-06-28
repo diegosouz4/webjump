@@ -1,0 +1,24 @@
+.header {
+  &__barra-superior {
+    background-color: var(--cor-preta-100);
+    padding: 0.3125rem 0;
+    @include mobile {
+      padding: 0.625rem 0;
+    }
+    .container {
+      text-align: right;
+      @include mobile {
+        text-align: center;
+      }
+      .barra-superior__texto {
+        color: var(--cor-branca-300);
+        font-size: var(--font-14);
+        a {
+          color: inherit;
+          font-weight: var(--font-bold);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

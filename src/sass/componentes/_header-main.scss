@@ -1,0 +1,89 @@
+.header {
+  &__main {
+    padding: 2rem 0;
+    @include mobile {
+      padding: 1.25rem 0;
+      position: relative;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      .main__icone {
+        display: none;
+        @include mobile {
+          display: block;
+        }
+        border: 0;
+        background: none;
+        width: 2rem;
+        height: 2rem;
+        overflow: hidden;
+        position: relative;
+        transition: 450ms ease-in;
+        cursor: pointer;
+        &.icone--busca {
+          color: var(--cor-vermelha-100);
+        }
+        &:hover,
+        &:focus {
+          transform: scale(1.02);
+        }
+        i {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 1.5rem;
+        }
+      }
+
+      .main__busca {
+        @include mobile {
+          display: none;
+          &.open {
+            display: flex;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2rem;
+            max-width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            animation: 450ms showBusca ease-in forwards;
+            z-index: 2;
+            box-shadow: 0 0.5rem 0.5rem -0.25rem rgba(0, 0, 0, 0.25);
+          }
+        }
+        @media (min-width: 769px) {
+          max-width: 524px;
+        }
+        flex: 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        input {
+          flex: 2;
+          height: 44px;
+          line-height: 44px;
+          padding: 0.3125rem;
+          border: 1px solid var(--cor-cinza-300);
+        }
+      }
+    }
+  }
+}
+
+@keyframes showBusca {
+  from {
+    bottom: -3rem;
+    opacity: 0;
+  }
+  to {
+    bottom: -2rem;
+    opacity: 1;
+  }
+}
