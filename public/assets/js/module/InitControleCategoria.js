@@ -1,0 +1,1 @@
+export default function InitControleCategoria(){const t=document.querySelectorAll("[data-layout]"),a=document.querySelector("#listaProdutos");(a||t)&&t.forEach((t=>{t.addEventListener("click",(e=>{e.preventDefault(),t.dataset.layout!==a.dataset.layout&&(a.dataset.layout=t.dataset.layout,t.classList.toggle("ativo"))}))}))}

@@ -136,6 +136,35 @@
           figure {
             width: 230px;
           }
+          .item__info {
+            flex: 1 1 400px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 1fr auto;
+            gap: 0.625rem;
+            padding: 0.625rem;
+            .info__nome {
+              grid-column: 1/2;
+              grid-row: 1/-1;
+              text-align: initial;
+            }
+            .info__preco {
+              grid-column: 2/-1;
+              grid-row: 1/2;
+              text-align: right;
+              .preco__original,
+              .preco__final {
+                display: block;
+              }
+              .preco__original {
+                margin-bottom: 0.625rem;
+              }
+            }
+            .info__btn {
+              grid-column: 2/2;
+              grid-row: 2/-1;
+            }
+          }
         }
       }
     }

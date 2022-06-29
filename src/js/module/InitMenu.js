@@ -13,7 +13,6 @@ function puxaMenu(api) {
 function montaMenu(json) {
   let dadosApi = json;
   dadosApi.items.forEach((el) => {
-    console.log(el.name);
     criaLi(el);
   });
 }
