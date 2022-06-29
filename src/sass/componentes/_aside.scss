@@ -24,7 +24,7 @@
         line-height: 24px;
         color: var(--cor-preta-200);
       }
-      &:not([data-filtro="cores"]) {
+      &:not([data-filtrar-por="color"]) {
         li {
           &::before {
             content: "\2022";
@@ -43,13 +43,13 @@
         }
       }
 
-      &[data-filtro="cores"] {
+      &[data-filtrar-por="color"] {
         ul {
           display: flex;
           flex-wrap: wrap;
           gap: 0.3125rem;
 
-          [data-cor] {
+          [data-color] {
             display: block;
             width: 3rem;
             height: 1.5rem;
@@ -59,28 +59,28 @@
               opacity: 0.8;
             }
           }
-          [data-cor="amarelo"] {
+          [data-color="Amarela"] {
             background-color: var(--filtro-amarelo);
           }
-          [data-cor="azul"] {
+          [data-color="Azul"] {
             background-color: var(--filtro-azul);
           }
-          [data-cor="bege"] {
+          [data-color="Bege"] {
             background-color: var(--filtro-bege);
           }
-          [data-cor="cinza"] {
+          [data-color="Cinza"] {
             background-color: var(--filtro-cinza);
           }
-          [data-cor="laranja"] {
+          [data-color="Laranja"] {
             background-color: var(--filtro-laranja);
           }
-          [data-cor="preto"] {
+          [data-color="Preta"] {
             background-color: var(--filtro-preto);
           }
-          [data-cor="rosa"] {
+          [data-color="Rosa"] {
             background-color: var(--filtro-rosa);
           }
-          [data-cor="vermelho"] {
+          [data-color="Vermelho"] {
             background-color: var(--filtro-vermelho);
           }
         }

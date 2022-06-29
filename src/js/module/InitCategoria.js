@@ -1,4 +1,6 @@
 import Api from "./Api.js";
+import CriaFiltro from "./CriaFIltro.js";
+import CriaProduto from "./CriaProduto.js";
 
 export default function InitCategoria() {
   const listaProdutos = document.querySelector("#listaProdutos");
@@ -26,57 +28,45 @@ function puxaDados(json) {
     .split("/")
     .pop();
   const id = json.items.find((el) => el.path === pathAtual).id;
-
   pegaIdCategoria(id);
 }
 
 function pegaIdCategoria(id) {
   let urlFinal = "http://localhost:8888/api/V1/categories/" + `${id}`;
   Api(urlFinal, carregaProdutos);
+  alteraTextos();
 }
 
-const carregaProdutos = (json) => {
-  const listaProdutos = json;
+const alteraTextos = () => {
+  const pathAtual = window.location.pathname
+    .replace(".html", "")
+    .split("/")
+    .pop();
 
-  listaProdutos.items.forEach((produto) => {
-    criaProduto(produto);
-  });
+  let breadcrumb = document.querySelector(".breadcrumb");
+  const h1 = document.querySelector("h1");
+  breadcrumb.innerHTML = breadcrumb.innerHTML + `<p>${pathAtual}</p>`;
+  h1.innerText = pathAtual;
 };
 
-const criaProduto = (produto) => {
-  const listaProdutos = document.querySelector("#listaProdutos");
-  const li = document.createElement("li");
-  li.classList.add("produto__item");
-  li.innerHTML = ` 
-    <a href="./${produto.path}" class="item__container">
+const carregaProdutos = (json) => {
+  sessionStorage.teste = JSON.stringify(json);
+  const listaFiltros = json.filters;
+  let listaProdutos = json.items;
 
-      <figure><img src="./${produto.image}" alt="${produto.name}"></figure>
-      <div class="item__info">
-        <h2 class="info__nome">${produto.name}</h2>
-        <div class="info__preco">
-          <p class="preco__original">${
-            !!produto.specialPrice
-              ? produto.price.toLocaleString("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                })
-              : ""
-          }</p>
-          <p class="preco__final">${
-            !!produto.specialPrice
-              ? produto.specialPrice.toLocaleString("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                })
-              : produto.price.toLocaleString("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                })
-          }</p>
-        </div>
-        <buttom class="info__btn">Comprar</buttom>
-      </div>
-    </a>
-  `;
-  listaProdutos.appendChild(li);
+  if (window.location.search.includes("color=")) {
+    const cor = window.location.search.split("color=")[1];
+
+    listaProdutos = listaProdutos.filter(
+      (produto) => produto.filter[0]["color"] === cor
+    );
+  }
+
+  listaProdutos.forEach((produto) => {
+    CriaProduto(produto);
+  });
+
+  listaFiltros.forEach((filtro) => {
+    CriaFiltro(filtro, json.items);
+  });
 };
