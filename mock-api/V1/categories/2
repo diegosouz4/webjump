@@ -1,7 +1,8 @@
 {
   "filters": [
       {
-          "gender": "Gênero"
+        "tipo": "Tipo",  
+        "gender": "Gênero"
       }
   ],
   "items": [
@@ -15,7 +16,8 @@
       "specialPrice": 29.9,
       "filter": [
         {
-          "gender": "Masculina"
+          "gender": "Masculina",
+          "tipo": "Social"
         }
       ]
     },
@@ -28,7 +30,8 @@
       "price": 24.15,
       "filter": [
           {
-            "gender": "Feminina"
+            "gender": "Feminina",
+            "tipo": "Caminhada"
           }
       ]
     },
@@ -41,7 +44,8 @@
       "price": 61.49,
       "filter": [
           {
-            "gender": "Feminina"
+            "gender": "Feminina",
+            "tipo": "Caminhada"
           }
       ]
     },
@@ -55,7 +59,8 @@
       "specialPrice": 58,
       "filter": [
         {
-          "gender": "Masculina"
+          "gender": "Masculina",
+          "tipo": "Caminhada"
         }
       ]
     },
@@ -68,7 +73,8 @@
       "price": 70.0,
       "filter": [
         {
-          "gender": "Feminina"
+          "gender": "Feminina",
+          "tipo": "Caminhada"
         }
       ]
     }

@@ -1,4 +1,10 @@
 export default function CriaFiltro(filtro, listaProdutos) {
+  mostraFiltro(filtro, listaProdutos);
+  filtrarPor();
+  ativaFiltro();
+}
+
+const mostraFiltro = (filtro, listaProdutos) => {
   const aside = document.querySelector(".aside");
 
   const filtroDados = Object.entries(filtro);
@@ -32,12 +38,12 @@ export default function CriaFiltro(filtro, listaProdutos) {
 
     div.appendChild(ul);
   });
-
-  filtrarPor();
-}
+};
 
 const filtrarPor = () => {
   const filtros = document.querySelectorAll("[data-filtrar-por]");
+
+  console.log(filtros);
 
   filtros.forEach((tipo) => {
     tipo.addEventListener("click", (e) => {
@@ -45,19 +51,70 @@ const filtrarPor = () => {
 
       const key = e.currentTarget.dataset.filtrarPor;
       const el = e.target;
-      const value = el.dataset[key];
+      const value =
+        el.dataset[key] === undefined
+          ? el.parentNode.dataset[key]
+          : el.dataset[key];
 
       if (!value) return;
 
       const busca = `${key}=${value}`;
-      if (el.classList.contains("ativo")) {
-        el.classList.remove("ativo");
-        // location.assign(location.href.split("color=")[0]);
-        return;
-      }
+      let urlAtual = location.href;
+      urlAtual = urlAtual.replace(/\&&*/g, "&");
 
-      el.classList.add("ativo");
-      // location.search = busca;
+      window.location.search.length === 0
+        ? (location.search = busca)
+        : window.location.search.match(value)
+        ? (location = urlAtual.replace(busca, ""))
+        : window.location.search.match(key)
+        ? (location = urlAtual.replace(
+            location.search.split(key + "=")[1].split("&")[0],
+            value
+          ))
+        : (location = urlAtual + "&" + busca);
     });
   });
+};
+
+const ativaFiltro = () => {
+  let filtrosAitvos = location.search;
+  if (filtrosAitvos.length === 0) return;
+
+  filtrosAitvos = filtrosAitvos.split("?")[1].split("&");
+
+  filtrosAitvos = filtrosAitvos
+    .map((el) => {
+      let tag = el.split("=");
+      if (Number(tag[1])) return null;
+      let t = document.querySelector(`[data-${tag[0]}=${tag[1]}]`);
+      return t === null ? null : el;
+    })
+    .filter((el) => el !== null);
+
+  filtrosAitvos.forEach((filtro) => {
+    let btnFiltro = document.querySelector(`[data-${filtro}]`);
+    btnFiltro.classList.add("ativo");
+  });
+
+  crialimpaFiltro();
+};
+
+const crialimpaFiltro = () => {
+  if (location.search.replace(/\?id\=\d+?\&?/, "").length === 0) return;
+
+  const aside = document.querySelector(".aside");
+  const btn = document.createElement("button");
+
+  btn.classList.add("btn", "btn--limpa");
+  btn.ariaLabel = "Limpar filtro";
+  btn.innerText = "Limpar filtro";
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    let id = location.search.split("id=")[1].split("&")[0];
+    let url = location.href.replace(location.search, "");
+    location.href = id ? url + "?id=" + id : url;
+  });
+
+  aside.appendChild(btn);
 };

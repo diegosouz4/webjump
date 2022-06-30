@@ -1,7 +1,8 @@
 {
   "filters": [
       {
-          "color": "Cor"
+        "tipo": "Tipo",
+        "color": "Cor"
       }
   ],
   "items": [
@@ -14,7 +15,8 @@
       "price": 59.9,
       "filter": [
         {
-          "color": "Preta"
+          "color": "Preta",
+          "tipo": "Casual"
         }
       ]
     },
@@ -27,7 +29,8 @@
       "price": 40.5,
       "filter": [
           {
-            "color": "Laranja"
+            "color": "Laranja",
+            "tipo": "Social"
           }
       ]
     },
@@ -40,7 +43,8 @@
       "price": 61.49,
       "filter": [
           {
-            "color": "Amarela"
+            "color": "Amarela",
+            "tipo": "Casual"
           }
       ]
     },
@@ -53,7 +57,8 @@
       "price": 52.0,
       "filter": [
           {
-            "color": "Rosa"
+            "color": "Rosa",
+            "tipo": "Caminhada"
           }
       ]
     }

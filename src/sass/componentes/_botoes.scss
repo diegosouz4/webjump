@@ -14,7 +14,8 @@
     transform: scale(1.02);
   }
 
-  &.btn--busca {
+  &.btn--busca,
+  &.btn--limpa {
     height: 2.75rem;
     padding: 0 1.5rem;
     background: var(--cor-vermelha-200);
@@ -22,5 +23,13 @@
     &:focus {
       background: var(--cor-vermelha-100);
     }
+  }
+  &.btn--limpa {
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.3125rem;
+    border-radius: 5px;
   }
 }

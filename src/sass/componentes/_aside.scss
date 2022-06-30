@@ -35,6 +35,10 @@
           }
 
           a {
+            &.ativo{
+              color: var(--cor-vermelha-200);
+              font-weight: var(--font-bold);
+            }
             &:hover,
             &:focus {
               text-decoration: underline;
@@ -50,6 +54,14 @@
           gap: 0.3125rem;
 
           [data-color] {
+            &:not(.ativo) {
+              opacity: .8;
+              transform: scale(.9);
+              position: relative;
+            }
+            &.ativo{
+              box-shadow: 0 0 0 2px var(--cor-branca-300), 0 0 0 3px var(--cor-cinza-400);
+            }
             display: block;
             width: 3rem;
             height: 1.5rem;

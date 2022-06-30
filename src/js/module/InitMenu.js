@@ -25,6 +25,6 @@ function criaLi(item) {
     const li = document.createElement("li");
     li.innerHTML = `<a data-pageid="${item.id}" href="./${item.path}.html" title="${item.name}">${item.name}</a>`;
     ul.append(li);
-    ul.append(ultimaLi);
+    if (ultimaLi) ul.append(ultimaLi);
   });
 }
