@@ -43,8 +43,6 @@ const mostraFiltro = (filtro, listaProdutos) => {
 const filtrarPor = () => {
   const filtros = document.querySelectorAll("[data-filtrar-por]");
 
-  console.log(filtros);
-
   filtros.forEach((tipo) => {
     tipo.addEventListener("click", (e) => {
       e.preventDefault();
@@ -110,8 +108,11 @@ const crialimpaFiltro = () => {
   btn.innerText = "Limpar filtro";
 
   btn.addEventListener("click", (e) => {
+    console.log(e.target);
     e.preventDefault();
-    let id = location.search.split("id=")[1].split("&")[0];
+    let id = location.search.match("id=")
+      ? location.search.split("id=")[1].split("&")[0]
+      : undefined;
     let url = location.href.replace(location.search, "");
     location.href = id ? url + "?id=" + id : url;
   });

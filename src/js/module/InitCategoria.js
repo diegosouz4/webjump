@@ -101,7 +101,7 @@ const mostraErro = () => {
   const ul = document.querySelector("#listaProdutos");
   const li = document.createElement("li");
   const mensagem = `
-    <div class="erro__container"><h2>Lista de produtos não foi encontrada… Tente novamente mais tarde, obrigado</h2></div>
+    <div class="erro__container"><h2>Lista de produtos não foi encontrada… Tente novamente mais tarde, obrigado</h2><a href="/" class="btn btn--erro" data-link>Voltar para home</a></div>
   `;
   li.classList.add("mensagem--erro");
   li.innerHTML = mensagem;

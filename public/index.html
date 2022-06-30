@@ -15,7 +15,7 @@
 
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 </head>
-<body data-view="home">
+<body>
   
   <header class="header">
     <div class="header__barra-superior">
@@ -41,41 +41,15 @@
     
     <nav data-menu="content" class="header__nav">
       <div class="container">
-        <ul data-menu="lista" class="nav__menu">
-          <li><a href="./">Página Inicial</a></li>
-          <li><a href="#">Contato</a></li>
+        <ul data-menu="principal" class="nav__menu">
+          <li><a data-link href="./">Página Inicial</a></li>
+          <li><a data-link href="#">Contato</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
-  <div class="app">
-    <div class="container">  
-
-      <main class="main main--home">
-        <figure>
-          <img width="750" height="220" src="https://picsum.photos/seed/picsum/750/250" alt="">
-        </figure>
-
-        <h1>Seja bem-vindo!</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime beatae sequi sunt quisquam vel rem, perspiciatis et vitae! Dolore cumque harum ad corrupti sunt eos architecto expedita, omnis repellat assumenda natus autem mollitia quia soluta, minus reprehenderit ipsa? Tenetur voluptate perferendis accusantium quod quisquam qui quibusdam odit culpa praesentium voluptatem tempora, ab, similique sint, ut earum harum sed. Libero impedit doloremque error quasi ratione assumenda, repudiandae, iste dolorum sed aliquid vel adipisci, et illo! Maiores autem ipsa magni veniam omnis? Repudiandae unde repellendus, odio error consectetur mollitia qui dolorem harum ullam consequatur fugit itaque dolor dolores aut nam eaque debitis illum dicta voluptates accusamus officiis? Nulla commodi voluptate, harum dolorum hic ipsum, ratione magni quod, adipisci rem labore amet error!</p>
-      </main>
-
-      <aside class="aside">
-        <nav class="aside__nav">
-          <ul class="nav__menu" data-menu="lista">
-            <li><a href="./">Página Inicial</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </nav>
-      </aside>
-    
-      <footer class="footer">
-      </footer>
-
-    </div>
-  </div>
-
+  <div id="app" class="app"><div class="container"></div></div>
 
   <script type="module" src="./assets/js/script.js"></script>
 </body>

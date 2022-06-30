@@ -31,7 +31,10 @@ function minifyCss() {
 
 //Js functions
 function minifyJs() {
-  return gulp.src("src/js/**/*.js").pipe(terser()).pipe(gulp.dest("public/assets/js"));
+  return gulp
+    .src("src/js/**/*.js")
+    .pipe(terser())
+    .pipe(gulp.dest("public/assets/js"));
 }
 
 // Watch task

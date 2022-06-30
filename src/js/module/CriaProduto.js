@@ -9,7 +9,7 @@ export default function CriaProduto(produto) {
 
   li.classList.add("produto__item");
   li.innerHTML = ` 
-    <a href="./${categoria}/${produto.path}" class="item__container">
+    <a href="./${produto.path}" data-link class="item__container">
 
       <figure><img src="./${produto.image}" alt="${produto.name}"></figure>
       <div class="item__info">
@@ -41,5 +41,3 @@ export default function CriaProduto(produto) {
   `;
   listaProdutos.appendChild(li);
 }
-
-const atualizaProdutos = (json) => {};

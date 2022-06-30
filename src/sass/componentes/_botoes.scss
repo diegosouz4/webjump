@@ -15,7 +15,9 @@
   }
 
   &.btn--busca,
-  &.btn--limpa {
+  &.btn--limpa,
+  &.btn--erro {
+    cursor: pointer;
     height: 2.75rem;
     padding: 0 1.5rem;
     background: var(--cor-vermelha-200);
@@ -25,11 +27,19 @@
     }
   }
   &.btn--limpa {
-    cursor: pointer;
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0.3125rem;
     border-radius: 5px;
+  }
+  &.btn--erro {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    max-width: 200px;
+    margin-top: 0.625rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

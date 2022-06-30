@@ -1,13 +1,13 @@
 import Api from "./Api.js";
 
 export default function InitMenu() {
-  let urlAPI = "http://localhost:8888/api/V1/categories";
-  puxaMenu(urlAPI);
+  let urlAPI = "http://localhost:8888/api/V1/categories/list";
+  Api(urlAPI, montaMenu);
 }
 
-function puxaMenu(api) {
-  const APiMenu = api + "/list";
-  Api(APiMenu, montaMenu);
+export function AtualizaMenuAside() {
+  let urlAPI = "http://localhost:8888/api/V1/categories/list";
+  Api(urlAPI, montaMenuAside);
 }
 
 function montaMenu(json) {
@@ -17,13 +17,21 @@ function montaMenu(json) {
   });
 }
 
-function criaLi(item) {
-  const uls = document.querySelectorAll("[data-menu='lista']");
+function montaMenuAside(json) {
+  let dadosApi = json;
+  dadosApi.items.forEach((el) => {
+    criaLi(el, "aside");
+  });
+}
+
+function criaLi(item, posicao = "principal") {
+  const posicaoMenu = `[data-menu=${posicao}]`;
+  const uls = document.querySelectorAll(posicaoMenu);
 
   uls.forEach((ul) => {
     const ultimaLi = Array.from(ul.querySelectorAll("li")).pop();
     const li = document.createElement("li");
-    li.innerHTML = `<a data-pageid="${item.id}" href="./${item.path}.html" title="${item.name}">${item.name}</a>`;
+    li.innerHTML = `<a data-link data-pageid="${item.id}" href="./${item.path}.html" title="${item.name}">${item.name}</a>`;
     ul.append(li);
     if (ultimaLi) ul.append(ultimaLi);
   });
