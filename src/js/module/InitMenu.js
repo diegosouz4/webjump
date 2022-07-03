@@ -1,12 +1,12 @@
 import Api from "./Api.js";
 
 export default function InitMenu() {
-  let urlAPI = "http://localhost:8888/api/V1/categories/list";
+  let urlAPI = "/api/V1/categories/list";
   Api(urlAPI, montaMenu);
 }
 
 export function AtualizaMenuAside() {
-  let urlAPI = "http://localhost:8888/api/V1/categories/list";
+  let urlAPI = "/api/V1/categories/list";
   Api(urlAPI, montaMenuAside);
 }
 

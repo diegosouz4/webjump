@@ -19,7 +19,7 @@ function pegaId() {
     return;
   }
 
-  Api("http://localhost:8888/api/V1/categories/list", puxaDados);
+  Api("/api/V1/categories/list", puxaDados);
 }
 
 function puxaDados(json) {
@@ -32,7 +32,7 @@ function puxaDados(json) {
 }
 
 function pegaIdCategoria(id) {
-  let urlFinal = "http://localhost:8888/api/V1/categories/" + `${id}`;
+  let urlFinal = "/api/V1/categories/" + `${id}`;
   Api(urlFinal, carregaProdutos);
   alteraTextos();
 }

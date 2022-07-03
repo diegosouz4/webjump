@@ -14,16 +14,19 @@ window.addEventListener("load", () => {
 function acharRota() {
   const rotas = {
     "/": InitPaginaHome,
-    "/camisetas.html": InitPaginaCategoria,
-    "/calcas.html": InitPaginaCategoria,
-    "/calcados.html": InitPaginaCategoria,
-    "/camiseta/": InitPaginaProduto,
-    "/calcas/": InitPaginaProduto,
-    "/calcados/": InitPaginaProduto,
+    "/camisetas": InitPaginaCategoria,
+    "/calcas": InitPaginaCategoria,
+    "/calcados": InitPaginaCategoria,
+    "/tenis-": InitPaginaProduto,
+    "/camiseta-": InitPaginaProduto,
+    "/calca-": InitPaginaProduto,
   };
 
-  const path = location.pathname;
-  const rota = rotas[path] || rotas[404];
+  let path = location.pathname.replace(".html", "");
+  if (path.split("-").length > 1) {
+    path = path.split("-")[0] + "-";
+  }
+  const rota = rotas[path] || rotas["/"];
   rota();
 }
 

@@ -39,5 +39,10 @@ export default function CriaProduto(produto) {
       </div>
     </a>
   `;
+  li.addEventListener("click", (e) => {
+    e.preventDefault();
+    const alvo = e.currentTarget.querySelector("[data-link]").href;
+    location.href = alvo;
+  });
   listaProdutos.appendChild(li);
 }

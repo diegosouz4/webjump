@@ -1,0 +1,87 @@
+[data-view="produto"] {
+  .app {
+    .container {
+      display: grid;
+      grid-template-rows: auto 1fr 176px;
+      gap: 2rem;
+
+      .breadcrumb {
+        grid-row: 1 / 2;
+      }
+
+      .main--produto {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1.5rem;
+        .produto__imagem {
+          width: calc(60% - 1.5rem);
+
+          img {
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+          }
+        }
+        .produto__info {
+          width: calc(40% - 1.5rem);
+
+          .info__nome {
+            margin-bottom: .3125rem;
+          }
+          .info__sku {
+            color: var(--cor-cinza-500);
+            font-size: var(--font-12);
+            font-weight: var(--font-regular);
+            line-height: 18px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            text-align: center;
+          }
+          .info__preco {
+            margin-top: 2rem;
+            .preco__original {
+              font-size: var(--font-18);
+              color: var(--cor-cinza-400);
+              text-decoration: line-through;
+              margin-bottom: 0.625rem;
+            }
+            .preco__final {
+              font-size: var(--font-32);
+              font-weight: var(--font-extrabold);
+              line-height: 1.2;
+              color: var(--cor-vermelha-200);
+            }
+          }
+          .info__btn {
+            cursor: pointer;
+            margin-top: 2rem;
+            display: block;
+            max-width: 250px;
+            background-color: var(--cor-vermelha-200);
+            text-align: center;
+            font-size: var(--font-18);
+            font-weight: var(--font-extrabold);
+            color: var(--cor-branca-300);
+            padding: 0.625rem 1.25rem;
+            border-radius: 5px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .footer {
+        @include mobile {
+          margin-top: 2rem;
+          height: 180px;
+        }
+        @media (min-width: 321px) {
+          grid-row: 3 / -1;
+        }
+        background-color: var(--cor-vermelha-200);
+      }
+    }
+  }
+}
