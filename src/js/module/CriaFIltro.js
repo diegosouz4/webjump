@@ -7,6 +7,8 @@ export default function CriaFiltro(filtro, listaProdutos) {
 const mostraFiltro = (filtro, listaProdutos) => {
   const aside = document.querySelector(".aside");
 
+  if (!aside) return;
+
   const filtroDados = Object.entries(filtro);
 
   filtroDados.forEach((tipoFiltro) => {
@@ -42,6 +44,7 @@ const mostraFiltro = (filtro, listaProdutos) => {
 
 const filtrarPor = () => {
   const filtros = document.querySelectorAll("[data-filtrar-por]");
+  if (!filtros) return;
 
   filtros.forEach((tipo) => {
     tipo.addEventListener("click", (e) => {
@@ -108,7 +111,6 @@ const crialimpaFiltro = () => {
   btn.innerText = "Limpar filtro";
 
   btn.addEventListener("click", (e) => {
-    console.log(e.target);
     e.preventDefault();
     let id = location.search.match("id=")
       ? location.search.split("id=")[1].split("&")[0]

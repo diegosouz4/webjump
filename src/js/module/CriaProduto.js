@@ -2,6 +2,8 @@ export default function CriaProduto(produto) {
   const listaProdutos = document.querySelector("#listaProdutos");
   const li = document.createElement("li");
 
+  if (!listaProdutos && !li) return;
+
   const categoria = window.location.pathname
     .replace(".html", "")
     .split("/")

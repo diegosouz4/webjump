@@ -15,7 +15,6 @@ const initPagina = () => {
   };
 
   const url = `/api/V1/categories/${rotas[path]}`;
-  console.log(url);
   Api(url, puxaDados);
 };
 
@@ -28,16 +27,19 @@ const puxaDados = (jsonListaProdutos) => {
 
 const mostraProduto = (jsonProduto) => {
   const app = document.querySelector(".app");
+  if (!app) return;
+
   const produto = jsonProduto;
 
-  document.title = document.title + ' | ' +  produto.name;
+  document.title = document.title + " | " + produto.name;
   document.body.dataset.view = "produto";
-
 
   const html = `
   
   <div class="container">
-  <div class="breadcrumb"><a href="./">Página inicial</a><p>${produto.name}</p></div>
+  <div class="breadcrumb"><a href="./">Página inicial</a><p>${
+    produto.name
+  }</p></div>
   <main class="main main--produto">
       <div class="produto__imagem">
         <figure><img src="./${produto.image}" alt="${produto.name}"></figure>

@@ -28,6 +28,8 @@ function criaLi(item, posicao = "principal") {
   const posicaoMenu = `[data-menu=${posicao}]`;
   const uls = document.querySelectorAll(posicaoMenu);
 
+  if (!uls) return;
+
   uls.forEach((ul) => {
     const ultimaLi = Array.from(ul.querySelectorAll("li")).pop();
     const li = document.createElement("li");

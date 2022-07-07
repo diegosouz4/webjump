@@ -5,6 +5,7 @@ import { AtualizaMenuAside } from "../module/InitMenu.js";
 
 export default function InitPaginaCategoria() {
   const app = document.querySelector("#app .container");
+  if(!app) return;
   document.body.dataset.view = "categoria";
 
   const html = `

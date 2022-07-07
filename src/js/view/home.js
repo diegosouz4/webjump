@@ -2,6 +2,8 @@ import { AtualizaMenuAside } from "../module/InitMenu.js";
 
 export default function InitPaginaHome() {
   const app = document.querySelector("#app .container");
+  if (!app) return;
+
   const html = `
     <main class="main main--home">
     <figure>
