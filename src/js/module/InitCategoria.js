@@ -1,6 +1,6 @@
-import Api from "./Api.js";
-import CriaFiltro from "./CriaFIltro.js";
-import CriaProduto from "./CriaProduto.js";
+import Api from "./api.js";
+import CriaFiltro from "./criaFIltro.js";
+import CriaProduto from "./criaProduto.js";
 
 export default function InitCategoria() {
   const listaProdutos = document.querySelector("#listaProdutos");
@@ -19,7 +19,7 @@ function pegaId() {
     return;
   }
 
-  Api("/api/V1/categories/list", puxaDados);
+  Api("http://localhost:8888/api/V1/categories/list", puxaDados);
 }
 
 function puxaDados(json) {
@@ -32,7 +32,7 @@ function puxaDados(json) {
 }
 
 function pegaIdCategoria(id) {
-  let urlFinal = "/api/V1/categories/" + `${id}`;
+  let urlFinal = "http://localhost:8888/api/V1/categories/" + `${id}`;
   Api(urlFinal, carregaProdutos);
   alteraTextos();
 }

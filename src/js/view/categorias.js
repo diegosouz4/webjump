@@ -1,7 +1,7 @@
-import Api from "../module/Api.js";
-import InitCategoria from "../module/InitCategoria.js";
-import InitControleCategoria from "../module/InitControleCategoria.js";
-import { AtualizaMenuAside } from "../module/InitMenu.js";
+import Api from "../module/api.js";
+import InitCategoria from "../module/initCategoria.js";
+import InitControleCategoria from "../module/initControleCategoria.js";
+import { AtualizaMenuAside } from "../module/initMenu.js";
 
 export default function InitPaginaCategoria() {
   const app = document.querySelector("#app .container");

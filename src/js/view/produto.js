@@ -1,4 +1,4 @@
-import Api from "../module/Api.js";
+import Api from "../module/api.js";
 
 export default function InitPaginaProduto() {
   initPagina();
@@ -14,7 +14,7 @@ const initPagina = () => {
     "tenis-": 3,
   };
 
-  const url = `/api/V1/categories/${rotas[path]}`;
+  const url = `http://localhost:8888/api/V1/categories/${rotas[path]}`;
   Api(url, puxaDados);
 };
 

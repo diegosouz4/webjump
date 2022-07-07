@@ -1,12 +1,12 @@
-import InitMenu from "./module/InitMenu.js";
-import InitMenuMobile from "./module/initMobileMenu.js";
+import InitMenu from "./module/initMenu.js";
+import InitMobileMenu from "./module/InitMobileMenu.js";
 import InitPaginaCategoria from "./view/categorias.js";
 import InitPaginaHome from "./view/home.js";
 import InitPaginaProduto from "./view/produto.js";
 
 window.addEventListener("load", () => {
   InitMenu();
-  InitMenuMobile();
+  InitMobileMenu();
 
   acharRota();
 });

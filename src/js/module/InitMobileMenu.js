@@ -1,6 +1,6 @@
-import outsideClick from "./OutSideClick.js";
+import outsideClick from "./outSideClick.js";
 
-export default function InitMenuMobile() {
+export default function InitMobileMenu() {
   menuMobile();
   buscaMobile();
 }

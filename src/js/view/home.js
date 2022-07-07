@@ -1,4 +1,4 @@
-import { AtualizaMenuAside } from "../module/InitMenu.js";
+import { AtualizaMenuAside } from "../module/initMenu.js";
 
 export default function InitPaginaHome() {
   const app = document.querySelector("#app .container");

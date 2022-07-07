@@ -1,31 +1,20 @@
-// minImg and webpconverter
-// Para usar essas funções é preciso adicionar a tag ("type" : "module",) no arquivo "package.json" e comentar todos as outras funções gulp.
-
-// import gulp from "gulp";
-// import imagemin from "gulp-imagemin";
-// import webp from "gulp-webp";
-
-// gulp.task("minifyImg", () => {
-//   return gulp.src("src/img/**/*.{jpg,png}").pipe(imagemin()).pipe(gulp.dest("dir/img"));
-// });
-
-// gulp.task("webpConverter", () => {
-//   return gulp.src("src/img/**/*.{png,jpg}").pipe(webp()).pipe(gulp.dest("dir/img"));
-// });
-
 const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const autoprefixer = require("gulp-autoprefixer");
 const mincss = require("gulp-clean-css");
 const terser = require("gulp-terser");
+const babel = require("gulp-babel");
+var sourcemaps = require("gulp-sourcemaps");
 
 // Css functions
 function minifyCss() {
   return gulp
     .src("src/sass/**/*.scss")
+    .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer("last 2 versions"))
     .pipe(mincss())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest("public/assets/css"));
 }
 
@@ -33,7 +22,21 @@ function minifyCss() {
 function minifyJs() {
   return gulp
     .src("src/js/**/*.js")
+    .pipe(sourcemaps.init())
+    .pipe(
+      babel({
+        presets: [
+          [
+            "@babel/env",
+            {
+              modules: false,
+            },
+          ],
+        ],
+      })
+    )
     .pipe(terser())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest("public/assets/js"));
 }
 
