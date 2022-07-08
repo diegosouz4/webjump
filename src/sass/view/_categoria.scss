@@ -5,7 +5,7 @@
       grid-template-columns: 1fr;
       grid-template-rows: auto 1fr 180px;
       gap: 1.5rem;
-      @media (min-width: 321px) {
+      @media (min-width: 500px) {
         grid-template-columns: 200px 1fr;
         grid-template-rows: auto 1fr 180px;
       }
@@ -21,7 +21,7 @@
 
     .breadcrumb {
       grid-column: 1;
-      @media (min-width: 321px) {
+      @media (min-width: 500px) {
         grid-column: 1/-1;
         grid-row: 1/2;
       }
@@ -29,7 +29,7 @@
 
     .main {
       grid-column: 1;
-      @media (min-width: 321px) {
+      @media (min-width: 500px) {
         grid-column: 2/-1;
         grid-row: 2/3;
       }
@@ -44,7 +44,7 @@
     .footer {
       grid-column: 1;
       background-color: var(--cor-vermelha-200);
-      @media (min-width: 321px) {
+      @media (min-width: 500px) {
         grid-column: 1/-1;
         grid-row: 3/-1;
       }
